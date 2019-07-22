@@ -1,8 +1,10 @@
 module.exports = {
-    profile: require('./profile'),  
-    account: require('./account'),
-    shop: require('./shop'),
+    profile: require ('./profile'),
+    account: require ('./account'),
+    shop: require ('./shop'),
 }
+
+
 
 
 
