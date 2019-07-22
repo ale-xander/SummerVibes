@@ -12,5 +12,8 @@
     "url": "https://git.generalassemb.ly/alexiliev/summerVibes.git"
   },
   "author": "alex, joseph",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
