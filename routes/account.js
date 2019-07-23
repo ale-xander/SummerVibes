@@ -9,6 +9,6 @@ router.post('/login', ctrl.accountsCtrl.createSession);
 router.get('/logout', ctrl.accountsCtrl.deleteSession);
 router.post('/logout', ctrl.accoutnCtrl.deleteSession); 
 
-module.express = router; 
+module.exports = router; 
 
 
