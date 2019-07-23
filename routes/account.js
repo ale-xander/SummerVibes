@@ -9,6 +9,6 @@ const accountsCtrl = require('../controllers/accountCtrl');
 // router.get('/logout', accountsCtrl.deleteSession);
 // router.post('/logout', accoutnCtrl.deleteSession); 
 
-module.express = router; 
+module.exports = router; 
 
 
