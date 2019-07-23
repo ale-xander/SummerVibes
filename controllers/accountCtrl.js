@@ -1,5 +1,7 @@
-const db = require('../models');
-const responseFunc = require('./resposnse');
+const db = {
+    Customer: require('../models/Customer'),
+}
+const responseFunc = require('./response');
 //sendResponse, sendErrorResponse come from controllers/response.js
 
 module.exports = {

@@ -6,7 +6,9 @@ const PORT = process.env.PORT || 4000;
 
 // DATABASE 
 
-const db = require('./models');
+const db = {
+  User: require('./models/Customer'),
+};
 
 // ROUTES 
 
@@ -55,9 +57,9 @@ app.get('/', (req, res) => {
 
 // ACCOUNTS ROUTES 
 
-app.use('/accounts', routes.account);
+// app.use('/accounts', routes.account);
 // Profiles Route
-app.use('/profile', routes.profile);
+// app.use('/profile', routes.profile);
 
 // -------------------------------------------API ENDPOINTS--------------------------// 
 app.get('/api/v1/users', (req, res) => {
@@ -75,6 +77,8 @@ app.get('/api/v1/test', (req, res) => {
 });
 
 
-//------------------------------------------START SERVER ----------------------------//
+//------------------------------------------START SERVER ----------------------------
+
+//
 
 app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`)); 
