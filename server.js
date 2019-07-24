@@ -45,11 +45,15 @@ app.use(express.static(`${__dirname}/public`));
 app.use('/accounts', routes.account);
 app.use('/profile', routes.profile);
 app.use('/shop', routes.shop);
+app.use('/about', routes.about);
 
 // ---------------------------------------HTML ENDPOINTS-----------------------------//
 
 app.get('/', (req, res) => {
   res.render('index');
+});
+app.get('/about', (req, res) => {
+  res.render('about');
 });
 
 // ---------------------------------------API ENDPOINTS-----------------------------//

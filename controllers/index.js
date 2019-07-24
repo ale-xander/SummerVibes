@@ -3,5 +3,6 @@ module.exports = {
     cartCtrl: require('./cartCtrl'),
     menCtrl: require('./menCtrl'),
     womenCtrl: require('./womenCtrl'),
-    kidCtrl: require('./kidsCtrl')
+    kidCtrl: require('./kidsCtrl'),
+    aboutCtrl: require('./aboutCtrl')
 };
