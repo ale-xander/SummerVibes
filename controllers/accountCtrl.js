@@ -5,7 +5,10 @@ const db = require('../models');
 
 // GET New User
 const newUser = (req, res) => {
-  res.render('accounts/signup');
+  console.log('test');
+  // res.send('ok');
+  res.render('users/signup');
+  //res.render('accounts/signup');
 };
 
 // POST Create New User

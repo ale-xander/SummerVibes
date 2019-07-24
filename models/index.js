@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB_URL = 'mongodb+srv://joseph:fEV5nmsWx1TPd3A2@cluster0-s2bob.mongodb.net/test?retryWrites=true&w=majority';
+const DB_URL = 'mongodb+srv://joseph:fEV5nmsWx1TPd3A2@cluster0-s2bob.mongodb.net/summer-vibes?retryWrites=true&w=majority';
 
 mongoose.connect(DB_URL, {
   useNewUrlParser: true,
@@ -10,7 +10,7 @@ mongoose.connect(DB_URL, {
   .catch((err) => console.log(err));
 
 module.exports = {
-  Customer: require('./Customer'),
+  User: require('./User'),
   Item: require('./Item'),
   Cart: require('./Cart')
 };
