@@ -1,0 +1,17 @@
+<% include ./partials/_header.ejs %>
+<h2>Shop</h2>
+
+<div class="card-columns">
+    <% items.forEach(item => { %>
+        <div class="card" style="width: 24rem;">
+            <img class="card-img-top" src="<%= item.img_url %>" >
+            <div class="card-body">
+                <h5 class="card-title"><%= item.brand %></h5>
+                <h5 class="card-title"><%= item.price %></h5>
+                <p class="card-text"><%= item.description %></p>
+                <p class="card-text"><%= item.category %></p>
+            </div>
+        </div>
+    <% }) %>
+</div>
+<% include partials/_footer.ejs %>

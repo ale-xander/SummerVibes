@@ -1,0 +1,30 @@
+[
+    {
+        "brand": "Banana Republic",
+        "sku": "C98437282",
+        "description": "bSwim Short",
+        "price": 10,
+        "onSale": false,
+        "category": "men",
+        "img_url": "/views/img/mens/cn16673404 - Retromarine | Grapefruit Print Swim Short.jpg"
+    },
+    {
+        "brand": "Banana Republic",
+        "sku": "1234",
+        "description": "Adjustable Straw Fedora",
+        "price": 20,
+        "onSale": true,
+        "category": "women",
+        "img_url": "views/img/womens/cn16632822 - Adjustable Straw Fedora.jpg"
+    },
+    {
+        "brand": "Danward",
+        "sku": "5678",
+        "description": "pool sandals",
+        "price": 1,
+        "onSale": true,
+        "category": "kids",
+        "img_url": "views/img/mens/cn15020957 - Danward | Rubber Pool Slide.jpg"
+    }
+    
+]

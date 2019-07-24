@@ -1,14 +1,14 @@
 const express = require('express'); // import express 
 const router = express.Router();
-const ctrl = require('../controllers');
+const accountsCtrl = require('../controllers/accountCtrl');
 
-router.get('/signup', ctrl.accountsCtrl.newUser);  
-router.post('/signup', ctrl.accountsCtrl.createUser); 
-router.get('/login', ctrl.accountsCtrl.newSession); 
-router.post('/login', ctrl.accountsCtrl.createSession); 
-router.get('/logout', ctrl.accountsCtrl.deleteSession);
-router.post('/logout', ctrl.accoutnCtrl.deleteSession); 
+router.get('/signup', accountsCtrl.newUser);  
+router.post('/signup', accountsCtrl.createUser); 
+router.get('/login', accountsCtrl.newSession);
+router.post('/login', accountsCtrl.createSession); 
+router.get('/logout', accountsCtrl.deleteSession);
+router.post('/logout', accountsCtrl.deleteSession); 
 
-module.express = router; 
+module.exports = router; 
 
 

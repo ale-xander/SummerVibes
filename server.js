@@ -27,7 +27,7 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-  console.log('REQ SESSION = ', req.session);
+  console.log('User = ', req.session.currentUser);
   next();
 });
 
@@ -42,38 +42,33 @@ app.use(express.static(`${__dirname}/public`));
 
 // ------------------------------------------ROUTES --------------------------------//
 
-
+app.use('/accounts', routes.account);
+app.use('/profile', routes.profile);
+app.use('/shop', routes.shop);
 
 // ---------------------------------------HTML ENDPOINTS-----------------------------//
 
 app.get('/', (req, res) => {
-  // res.send('<h1>Welcome Summer Vibes</h1>');
-  // res.sendFile(`${__dirname}/views/index.html`);
-  res.render('index');
-});
-
-
-// ACCOUNTS ROUTES 
-
-app.use('/accounts', routes.account);
-// Profiles Route
-app.use('/profile', routes.profile);
-
-// -------------------------------------------API ENDPOINTS--------------------------// 
-app.get('/api/v1/users', (req, res) => {
-  db.User.find({}, (err, allUsers) => {
-    if (err) return res.json({ status: 400, error: err });
-    res.json({ status: 200, data: allUsers });
+  res.render('index', {
+    user: req.session.currentUser
   });
 });
 
-app.get('/api/v1/test', (req, res) => {
-  // const q = db.User.where('likes').lte(5);
-  const q = db.User.where('name').equals('Test Person2');
-  q.then(data => res.json({ status: 200, data: data }))
-    .catch(err => res.json({ status: 400, error: err }));
-});
+// ---------------------------------------API ENDPOINTS-----------------------------//
 
+app.post('/api/items', (req, res) => {
+  db.Item.create(req.body).then(item => {
+    res.json({
+      stats: 200,
+      data: item
+    });
+  }).catch*=(err => {
+    res.json({
+      status: 500,
+      err
+    });
+  });
+});
 
 //------------------------------------------START SERVER ----------------------------//
 

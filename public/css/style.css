@@ -1,0 +1,69 @@
+body {
+  background:#CDA34F; 
+  color: #e9e7da; 
+}
+
+.index {
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.index h1{
+  text-align: center;
+  margin: 48px 0;
+}
+
+.index-buttons {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.index-buttons .btn{
+  font-family: 'Patrick Hand', cursive;
+  margin: 4px; 
+}
+
+.jumbotron{
+  margin: 0 96x;
+  padding: 32px;
+  background-color: #636546; 
+}
+
+.nav-link {
+  color: #e9e7da;
+  display: inline;
+}
+
+.nav-link:hover {
+  color: gold;
+}
+
+.form-inputs {
+  margin: auto;
+  padding-top: 10vh;
+  width: 256px;
+}
+
+.form-inputs h2 {
+  text-align: center;
+  padding-bottom: 16px
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.input-wrapper-center {
+  display: flex;
+  justify-content: center;
+}
+
+.card-columns {
+  margin: auto;
+  padding: 0 128px;
+}
+
+.card-body {
+  background-color: #373f27;
+}
