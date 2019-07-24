@@ -6,7 +6,9 @@ const PORT = process.env.PORT || 4000;
 
 // DATABASE 
 
-const db = require('./models');
+const db = {
+  User: require('./models/Customer'),
+};
 
 // ROUTES 
 
@@ -55,9 +57,9 @@ app.get('/', (req, res) => {
 
 // ACCOUNTS ROUTES 
 
-app.use('/accounts', routes.account);
+// app.use('/accounts', routes.account);
 // Profiles Route
-app.use('/profile', routes.profile);
+// app.use('/profile', routes.profile);
 
 // -------------------------------------------API ENDPOINTS--------------------------// 
 app.get('/api/v1/users', (req, res) => {
@@ -73,6 +75,8 @@ app.get('/api/v1/test', (req, res) => {
   q.then(data => res.json({ status: 200, data: data }))
     .catch(err => res.json({ status: 400, error: err }));
 });
+
+
 
 
 //------------------------------------------START SERVER ----------------------------//

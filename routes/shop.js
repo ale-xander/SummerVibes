@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-router.get('/', req, res) =>  {
+router.get('/', (req, res) =>  {
      res.render('shop/shop'); 
 });
 
@@ -8,7 +8,7 @@ router.get('/mens', (req, res) => {
     res.render('shop/mens');
 });
 
-router.get('womens', (req, req) => {
+router.get('womens', (req, res) => {
     res.render('shop/womens');
 }); 
 
