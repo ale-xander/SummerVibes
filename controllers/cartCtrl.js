@@ -4,7 +4,7 @@ const db = require('../models');
 // POST Create New Item In Cart
 const createItem = (req, res) => {
   db.Cart.create(req.body, (err, newItem) => {
-    if(error) return responseFunc.sendErrorResponse(res, error);
+    if(error) console.log(error);
     responseFunc.sendResponse(res, newItem);
   });
 };
