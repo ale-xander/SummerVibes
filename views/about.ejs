@@ -1,15 +1,40 @@
 <% include ./partials/_header.ejs %>
-    <div class="container index">
-        <header class= 'index-header'>
-        <h1>Summer Vibes</h1>
-        <h2>still working on it</h2>
-        </header>
 
-        <main> 
-            <h3>some text here</h3>
-        </main>
-    <div> 
+    <header>
+    <h1>About Us</h1>
+    </header>
+
+    <body>
+    <main> 
+    <div class="row about-text">
+        <div class="col-6">
+            <h3>Summer Vibes is a leading specialty retailer of summer apparel, footwear and accessories  for young men and women who want to express their individuality through fashion</h3>
+        </div>
+        <div id="map" class="col-6">
+            <h4>You can find us at 250 Bush st</h4>
+            <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=At7-9tRWGXGM6Bjn6QrQB7slepzLuMPMb3hnoampu99dqTk61ygAGCmbZKIv1dZT&callback=loadMapScenario' async defer></script>
+        </div>
+        
+    </div>
+    </main>
+        <script type='text/javascript'>
+            function loadMapScenario() {
+                var map = new Microsoft.Maps.Map(document.getElementById('map'), {
+                    center: new Microsoft.Maps.Location(37.791261, -122.401478) });
+                var center = map.getCenter();
+                var infobox = new Microsoft.Maps.Infobox(center, { title: 'Our Office',
+                    description: '250 Bush St, San Francisco, CA 94104' });
+                    map.setOptions({
+                        maxZoom: 20,
+                        minZoom: 14
+                        });
+                infobox.setMap(map);
+                
+            }
+        </script>
+         <script type='text/javascript' src='https://www.bing.com/api/maps/mapcontrol?key=At7-9tRWGXGM6Bjn6QrQB7slepzLuMPMb3hnoampu99dqTk61ygAGCmbZKIv1dZT&callback=loadMapScenario' async defer></script>
+    </body>
+    
+
 <% include ./partials/_footer.ejs %>
-
-
 
