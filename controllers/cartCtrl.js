@@ -5,7 +5,7 @@ const db = require('../models');
 const createItem = (req, res) => {
   db.Cart.create(req.body, (err, newItem) => {
     if(error) return responseFunc.sendErrorResponse(res, error);
-    responseFunc.sendResponse(res, foundCustomer);
+    responseFunc.sendResponse(res, newItem);
   });
 };
 
