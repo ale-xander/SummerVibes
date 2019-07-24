@@ -27,7 +27,7 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-  console.log('REQ SESSION = ', req.session);
+  console.log('User = ', req.session.currentUser);
   next();
 });
 
@@ -49,7 +49,9 @@ app.use('/shop', routes.shop);
 // ---------------------------------------HTML ENDPOINTS-----------------------------//
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    user: req.session.currentUser
+  });
 });
 
 // ---------------------------------------API ENDPOINTS-----------------------------//

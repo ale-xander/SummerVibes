@@ -3,14 +3,3 @@ module.exports = {
     account: require('./account'),
     shop: require('./shop'),
 }
-
-
-
-
-
-
-
-
-
-
-
