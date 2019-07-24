@@ -55,7 +55,9 @@ app.get('/', (req, res) => {
 app.get('/about', (req, res) => {
   res.render('about');
 });
-
+app.get('/profile', (req, res) => {
+  res.render('profile');
+});
 // ---------------------------------------API ENDPOINTS-----------------------------//
 
 app.post('/api/items', (req, res) => {
