@@ -69,3 +69,12 @@ body {
 .card-body {
   background-color: #373f27;
 }
+#map {
+  width: 100%;
+  height: 400px;
+  background-color: grey;
+  padding: 20px;
+}
+.about-text {
+  padding: 25px;
+}
