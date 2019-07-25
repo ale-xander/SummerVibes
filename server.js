@@ -47,6 +47,7 @@ app.use('/profile', routes.profile);
 app.use('/shop', routes.shop);
 app.use('/about', routes.about);
 
+
 // ---------------------------------------HTML ENDPOINTS-----------------------------//
 
 app.get('/', (req, res) => {
@@ -66,7 +67,7 @@ app.post('/api/items', (req, res) => {
       stats: 200,
       data: item
     });
-  }).catch*=(err => {
+  }).catch(err => {
     res.json({
       status: 500,
       err
