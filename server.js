@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const methodOverride = require('method-override');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -18,6 +19,8 @@ app.set('view engine', 'ejs');
 
 //-------------------------------------MIDDLEWARE-----------------------------------// 
 
+app.use(methodOverride('_method'));
+
 // EXPRESS SESSIONS 
 
 app.use(session({
@@ -27,7 +30,7 @@ app.use(session({
 }));
 
 app.use((req, res, next) => {
-  console.log('REQ SESSION = ', req.session);
+  console.log('User = ', req.session.currentUser);
   next();
 });
 
@@ -46,19 +49,24 @@ app.use('/accounts', routes.account);
 app.use('/profile', routes.profile);
 app.use('/shop', routes.shop);
 app.use('/about', routes.about);
+app.use('/items', routes.items);
 
 
 // ---------------------------------------HTML ENDPOINTS-----------------------------//
 
 app.get('/', (req, res) => {
-  res.render('index');
+  res.render('index', {
+    user: req.session.currentUser
+  });
 });
 app.get('/about', (req, res) => {
-  res.render('about');
+  res.render('about',{
+    user: req.session.currentUser
+  });
 });
-app.get('/profile', (req, res) => {
-  res.render('profile');
-});
+
+
+
 // ---------------------------------------API ENDPOINTS-----------------------------//
 
 app.post('/api/items', (req, res) => {

@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose'); // using node.js require () 
 const Schema = mongoose.Schema;
 
-const CartSchema = new Schema({
+const CartSchema = new Schema({ // 
     userId:{
         type: String,
         required: true

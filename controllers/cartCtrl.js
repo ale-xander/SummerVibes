@@ -1,7 +1,6 @@
 const db = require('../models');
 
-
-// POST Create New Item In Cart
+// Post Create New Item In Cart
 const createItem = (req, res) => {
   db.Cart.create(req.body, (err, newItem) => {
     if(error) console.log(error);
@@ -9,7 +8,7 @@ const createItem = (req, res) => {
   });
 };
 
-//Delete Item From Cart
+// Delete Item From Cart
 const deleteItem = (req,res) =>    {
   db.Cart.findOneAndDelete({name: req.params.id}, (error, deletedItem) =>{
       if(error) return responseFunc.sendErrorResponse(res, error);
@@ -17,7 +16,7 @@ const deleteItem = (req,res) =>    {
   })
 };
 
-
+// Export the class 
 module.exports = {
   createItem,
   deleteItem

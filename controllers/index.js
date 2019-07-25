@@ -1,8 +1,8 @@
 module.exports = {
-    accountsCtrl: require('./accountsCtrl'),
+    aboutCtrl: require('./aboutCtrl'),
+    accountCtrl: require('./accountCtrl'),
     cartCtrl: require('./cartCtrl'),
-    menCtrl: require('./menCtrl'),
-    womenCtrl: require('./womenCtrl'),
-    kidCtrl: require('./kidsCtrl'),
-    aboutCtrl: require('./aboutCtrl')
+    itemsCtrl: require('./itemsCtrl'),
+    profileCtrl: require('./profileCtrl'),
+    shopCtrl: require('./shopCtrl'),
 };

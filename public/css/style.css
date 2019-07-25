@@ -7,11 +7,9 @@ body {
   font-family: 'Fjalla One', sans-serif;
 }
 
-.index-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 96px;
+.index h1 {
+  text-align: center;
+  margin: 48px 0;
 }
 
 .index-buttons {
@@ -54,6 +52,12 @@ body {
 .input-wrapper {
   display: flex;
   flex-direction: row-reverse;
+}
+
+.input-wrapper-even {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .input-wrapper-center {
