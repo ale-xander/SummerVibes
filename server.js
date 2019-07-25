@@ -57,7 +57,11 @@ app.get('/', (req, res) => {
     user: req.session.currentUser
   });
 });
-
+app.get('/about', (req, res) => {
+  res.render('about', {
+    user: req.session.currentUser
+  });
+});
 // ---------------------------------------API ENDPOINTS-----------------------------//
 
 app.post('/api/items', (req, res) => {
