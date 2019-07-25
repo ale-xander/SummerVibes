@@ -52,6 +52,7 @@ app.use('/about', routes.about);
 app.use('/items', routes.items);
 
 
+
 // ---------------------------------------HTML ENDPOINTS-----------------------------//
 
 app.get('/', (req, res) => {
@@ -64,9 +65,30 @@ app.get('/about', (req, res) => {
     user: req.session.currentUser
   });
 });
-
-
-
+app.get('/items', (req, res) => {
+  res.render('items', {
+    user: req.session.currentUser,
+    item: req.params
+  });
+});
+app.get('/newItem', (req, res) => {
+  res.render('newItem', {
+    user: req.session.currentUser,
+    item: req.params
+  });
+});
+app.get('/editItem', (req, res) => {
+  res.render('editItem', {
+    user: req.session.currentUser,
+    item: req.params
+  });
+});
+app.get('/deleteItem', (req, res) => {
+  res.render('deleteItem', {
+    user: req.session.currentUser,
+    item: req.params
+  });
+});
 // ---------------------------------------API ENDPOINTS-----------------------------//
 
 app.post('/api/items', (req, res) => {

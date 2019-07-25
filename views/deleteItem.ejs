@@ -1,8 +1,5 @@
 <% include ./partials/_header.ejs %>
-<form action="/items/<%= item._id %>?_method=DELETE" method="POST" id="delete-form"></form>
-
-
-<form method="POST" action="/items/<%= item._id %>%>?_method=PUT" id="itemForm">
+<form action="/items/<%= item._id %>?_method=DELETE" method="POST" id="delete-form">
     <div class="form-inputs">
         <h2>Add a new item to the store.</h2>
         <div class="form-group row">
@@ -55,16 +52,6 @@
                     deleteForm.submit();
                 });
             </script>
-            <button id="create-item" class="btn btn-dark">Create</item>
-            <script>
-                const createBtn = document.getElementById('create-item');
-                const createForm = document.getElementById('create-form');
-                createBtn.addEventListener('click', e =>    {
-                    e.preventDefault();
-                    createForm.submit();
-                });
-            </script>
-            <input class="btn btn-dark" type="submit" value="Update"/>
         </div>
     </div>
 </form>

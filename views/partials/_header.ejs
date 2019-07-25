@@ -35,6 +35,17 @@
 
       <% if(user) { %>
         <a class="nav-item nav-link" href='/accounts/logout'>Log Out</a>
+        <span class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            CRUD
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/newItem">Create</a>
+            <a class="dropdown-item" href="/shop?category=womens">Read</a>
+            <a class="dropdown-item" href="/editItem">Update</a>
+            <a class="dropdown-item" href="/deleteItem">Delete</a>
+          </div>
+      </span>
       <% } else { %>
         <a class="nav-item nav-link" href='/accounts/login'>Log In</a>
         <a class="nav-item nav-link" href='/accounts/signup'>Sign Up</a>  
