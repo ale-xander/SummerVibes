@@ -14,7 +14,7 @@ We allow our users to create carefully curated collections of summer apparel.
 - [x] APIs: HTML and JSON endpoints
 - [x] Mongo Database of users and items
 - [x] AJAX to fetch JSON data from the backend
-- [x] ~~jQuery~~ Vanilla JS
+- [x] ~~jQuery lol~~ Vanilla JS
 - [x] Embedded JavaScript templates
 - [x] Bootstrap
 - [x] Authentication
