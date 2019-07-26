@@ -1,7 +1,7 @@
 const bcrypt = require('bcryptjs');
 const db = require('../models');
 
-// --------------------- SIGNUP -------------------- //
+//--------------------------------------------------SIGNUP------------------------------------------//
 
 // GET New User
 const newUser = (req, res) => {
@@ -58,7 +58,7 @@ const createUser = (req, res) => {
 };
 
 
-// --------------------- LOGIN -------------------- //
+//---------------------------------------------------LOGIN---------------------------------------------------//
 
 const newSession = (req, res) => {
   res.render('users/login', {
@@ -82,7 +82,6 @@ const createSession = (req, res) => {
   }
 
   db.User.findOne({ email: req.body.email }, (err, foundUser) => {
-    console.log(foundUser);
     if (err) return res.render('users/login', { errors: [{ message: 'Something went wrong, please try again' }] });
 
     if (!foundUser) {
@@ -93,8 +92,8 @@ const createSession = (req, res) => {
       if (err) return res.render('users/login', { errors: [{ message: 'Something went wrong, please try again' }] });
 
       if (isMatch) {
-        req.session.currentUser = { _id: foundUser._id, name: foundUser.name, email: foundUser.email };
-        return res.redirect('/profile');
+        req.session.currentUser = foundUser;
+        return res.redirect('/');
       } else {
         return res.render('users/login', { errors: [{ message: 'Username or password is incorrect' }] })
       }

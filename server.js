@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const methodOverride = require('method-override');
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -17,6 +18,8 @@ const routes = require('./routes');
 app.set('view engine', 'ejs');
 
 //-------------------------------------MIDDLEWARE-----------------------------------// 
+
+app.use(methodOverride('_method'));
 
 // EXPRESS SESSIONS 
 
@@ -45,6 +48,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use('/accounts', routes.account);
 app.use('/profile', routes.profile);
 app.use('/shop', routes.shop);
+app.use('/items', routes.items);
 
 // ---------------------------------------HTML ENDPOINTS-----------------------------//
 
@@ -53,7 +57,11 @@ app.get('/', (req, res) => {
     user: req.session.currentUser
   });
 });
-
+app.get('/about', (req, res) => {
+  res.render('about', {
+    user: req.session.currentUser
+  });
+});
 // ---------------------------------------API ENDPOINTS-----------------------------//
 
 app.post('/api/items', (req, res) => {

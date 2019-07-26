@@ -1,11 +1,22 @@
 <% include ./partials/_header.ejs %>
 <h2>Shop</h2>
 
+<!--
+    - This ejs file requires an 'items' array to be provided in order to render.
+    - Uses a query parameter to get just one category of items from the database.
+    - I took advantage of the 'card' and 'card-columns' classes from bootstrap.
+    - 'card' is being used to display each item
+    - 'card-columns' makes it easy to display collections of images that are all different sizes.
+-->
+
 <div class="card-columns">
     <% items.forEach(item => { %>
-        <div class="card" style="width: 24rem;">
+        <div class="card" style="width: 18rem;">
             <img class="card-img-top" src="<%= item.img_url %>" >
             <div class="card-body">
+                <% if(user && user.isAdmin) { %>
+                    <a href="/items/edit/<%= item._id %>">edit item</a>
+                <% } %>
                 <h5 class="card-title"><%= item.brand %></h5>
                 <h5 class="card-title"><%= item.price %></h5>
                 <p class="card-text"><%= item.description %></p>
