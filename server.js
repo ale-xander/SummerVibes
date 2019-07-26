@@ -48,6 +48,7 @@ app.use(express.static(`${__dirname}/public`));
 app.use('/accounts', routes.account);
 app.use('/profile', routes.profile);
 app.use('/shop', routes.shop);
+app.use('/about', routes.about);
 app.use('/items', routes.items);
 
 // ---------------------------------------HTML ENDPOINTS-----------------------------//
