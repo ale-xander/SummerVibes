@@ -1,7 +1,7 @@
 <% include ./partials/_header.ejs %>
-<form method="POST" action="/items" id="itemForm">
+<form method="PUT" action="/edit/:id" id="itemForm">
     <div class="form-inputs">
-        <h2>Add a new item to the store.</h2>
+        <h2>Update an existing item.</h2>
         <div class="form-group row">
             <label class="col-sm-2" for="brand">Brand</label>
             <div class="col-sm-10 input-wrapper">

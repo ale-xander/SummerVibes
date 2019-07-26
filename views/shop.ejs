@@ -13,8 +13,19 @@
                 <h5 class="card-title"><%= item.price %></h5>
                 <p class="card-text"><%= item.description %></p>
                 <p class="card-text"><%= item.category %></p>
+                <p class="card-text"><%= item._id %></p>
+                <button data=<%=item._id %>  id="delete-item" class="btn btn-danger">Destroy</button>
             </div>
         </div>
     <% }) %>
 </div>
+<%
+const deleteCard = document.getElementById(data= <%item._id %>);
+const handleDeleteCard = (event)=>{
+    event.preventDefault();
+    if (event.target.classList.contains('delete-item')) {
+    deleteItem(event);
+  }
+}
+deleteCard.addEventListener('click', handleDeleteCard);%>
 <% include partials/_footer.ejs %>
