@@ -6,7 +6,7 @@
         <div class="card" style="width: 24rem;">
             <img class="card-img-top" src="<%= item.img_url %>" >
             <div class="card-body">
-                <% if(user && user.isAdmin && editMode) { %>
+                <% if(user && user.isAdmin) { %>
                     <a href="/items/edit/<%= item._id %>">edit item</a>
                 <% } %>
                 <h5 class="card-title"><%= item.brand %></h5>
