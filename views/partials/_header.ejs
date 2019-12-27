@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- Bootstrap JS and CSS CDNs-->
+
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/style.css">
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+  <title>Summer Vibes</title>
+</head>
+<body>
+
+<!--
+  - The nav bar takes a 'user' parameter when rendering
+  - Since the Nav bar is being used in all the pages, I put it directly in the header partial.
+  - This means that a user must be provided when rendering any page that includes the header.
+    - The user may be explicitly set to 'undefined' but if it isn't passed at all then I get an error.
+  
+  - Bootstrap is very quick and easy to use,
+    I just found an example in the bootsrap docs and added a few customizations to it.
+    https://getbootstrap.com/docs/4.3/components/navbar/
+-->
+
+<nav class="navbar navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Summer Vibes</a>
+  <span class="navbar-items">
+      <span class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Categories
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/shop?category=mens">Men's</a>
+            <a class="dropdown-item" href="/shop?category=womens">Women's</a>
+            <a class="dropdown-item" href="/shop?category=kids">Kid's</a>
+          </div>
+      </span>
+      <a class="nav-item nav-link" href='/about'>About Us</a>
+
+      <% if(user) { %>
+        <% if(user.isAdmin) %>
+          <a class="nav-item nav-link" href='/items/new'>Add Item</a>   
+        <a class="nav-item nav-link" href='/accounts/logout'>Log Out</a>
+      <% } else { %>
+        <a class="nav-item nav-link" href='/accounts/login'>Log In</a>
+        <a class="nav-item nav-link" href='/accounts/signup'>Sign Up</a>  
+      <% } %>
+  </span>
+</nav>

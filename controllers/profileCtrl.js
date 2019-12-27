@@ -15,8 +15,31 @@ const showProfile = (req, res) => {
 }
 
 //UPDATE 
+const updateProfile = (req,res)=>{
+  if (!req.session.currentUser) {
+    return res.redirect('/accounts/login');
+  }
+  db.User.findOneAndUpdate({id: req.params._id}, (error, updatedUser)=>{
+    if(error) return responseFunc.sendErrorResponse(res, error);
+    responseFunc.sendResponse(res, updatedUser);
+});
+}
+
+
+
 //DELETE
+const deleteProfile = (req,res)=>{
+  if (!req.session.currentUser) {
+    return res.redirect('/accounts/login');
+  }
+  db.User.findOneAndDelete({name: req.params._id}, (error, deletedUser) =>{
+    if(error) return responseFunc.sendErrorResponse(res, error);
+    responseFunc.sendResponse(res, deletedUser);
+})
+}
 
 module.exports = {
   showProfile,
+  updateProfile,
+  deleteProfile
 }

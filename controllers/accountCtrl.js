@@ -1,11 +1,13 @@
 const bcrypt = require('bcryptjs');
 const db = require('../models');
 
-// --------------------- SIGNUP -------------------- //
+//--------------------------------------------------SIGNUP------------------------------------------//
 
 // GET New User
 const newUser = (req, res) => {
-  res.render('accounts/signup');
+  res.render('users/signup', {
+    user: req.session.currentUser
+  });
 };
 
 // POST Create New User
@@ -29,7 +31,7 @@ const createUser = (req, res) => {
   }
 
   if (errors.length) {
-    return res.render('accounts/signup', { errors })
+    return res.render('users/signup', { errors })
   }
 
   // Generate Hash Salt
@@ -56,12 +58,13 @@ const createUser = (req, res) => {
 };
 
 
-// --------------------- LOGIN -------------------- //
+//---------------------------------------------------LOGIN---------------------------------------------------//
 
 const newSession = (req, res) => {
-  res.render('accounts/login');
+  res.render('users/login', {
+    user: req.session.currentUser
+  });
 }
-
 
 const createSession = (req, res) => {
   const errors = [];
@@ -75,24 +78,24 @@ const createSession = (req, res) => {
   }
 
   if (errors.length) {
-    return res.render('accounts/login', { errors })
+    return res.render('users/login', { errors })
   }
 
   db.User.findOne({ email: req.body.email }, (err, foundUser) => {
-    if (err) return res.render('accounts/login', { errors: [{ message: 'Something went wrong, please try again' }] });
+    if (err) return res.render('users/login', { errors: [{ message: 'Something went wrong, please try again' }] });
 
     if (!foundUser) {
-      return res.render('accounts/login', { errors: [{ message: 'Username or password is incorrect' }] })
+      return res.render('users/login', { errors: [{ message: 'Username or password is incorrect' }] })
     }
 
     bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
-      if (err) return res.render('accounts/login', { errors: [{ message: 'Something went wrong, please try again' }] });
+      if (err) return res.render('users/login', { errors: [{ message: 'Something went wrong, please try again' }] });
 
       if (isMatch) {
-        req.session.currentUser = { _id: foundUser._id, name: foundUser.name, email: foundUser.email };
-        return res.redirect('/profile');
+        req.session.currentUser = foundUser;
+        return res.redirect('/');
       } else {
-        return res.render('accounts/login', { errors: [{ message: 'Username or password is incorrect' }] })
+        return res.render('users/login', { errors: [{ message: 'Username or password is incorrect' }] })
       }
     });
   });
@@ -103,7 +106,7 @@ const deleteSession = (req, res) => {
     if (err) return res.render('profile/show', { errors: [{ message: 'Something went wrong, please try again' }] });
   })
 
-  res.redirect('/accounts/login')
+  res.redirect('/accounts/login');
 }
 
 module.exports = {
